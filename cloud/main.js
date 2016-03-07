@@ -10,11 +10,11 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 Parse.Cloud.define('findUsers', function(req, res) {
-	var usersCur = db.inventory.find();
-	var respStr = "";
-	while(usersCur.hasNext()) {
-		respStr += usersCur.next();
-	}
+	// var usersCur = db.inventory.find();
+	// var respStr = "";
+	// while(usersCur.hasNext()) {
+	// 	respStr += usersCur.next();
+	// }
   res.success('respStr');
 });
 
