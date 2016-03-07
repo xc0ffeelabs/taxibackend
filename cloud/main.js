@@ -31,11 +31,12 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	        }
 	        docs.forEach(function(doc) {
 	        	respStr += doc;
-	          console.log('found document: ', doc)
 	      });
 	    });
+
+	  res.success(respStr);
 	});
-	res.success(respStr);
+	
 });
 
 
