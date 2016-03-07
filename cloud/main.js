@@ -18,28 +18,39 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	// 	respStr += usersCur.next();
 	// }
 
+	var db = req.db;
+    var collection = db.get('_User');
+    
+
 	MongoClient.connect(dbUri, function(err, db) {
 	  if(err) {
 	    console.log("failed to connect to the database");
 	  } else {
 	    console.log("connected to database");
+	    // db.close();
+	    var collection = db.collection('_User');
+	  	collection.find({},{},function(e,docs){
+        res.render('userlist', {
+            "userlist" : docs
+        });
 	  }
-	  var collection = db.collection('_User');
-	  var usersCur = collection.find({});
-	  // .toArray(function(err, docs) {
-	  //       if (err) {
-	  //         return console.error(err)
-	  //       }
-	  //       docs.forEach(function(doc) {
-	  //       	respStr += doc;
-	  //     });
-	  //   });
+	  
+	});
+	 //  var usersCur = collection.find({});
+	 //  // .toArray(function(err, docs) {
+	 //  //       if (err) {
+	 //  //         return console.error(err)
+	 //  //       }
+	 //  //       docs.forEach(function(doc) {
+	 //  //       	respStr += doc;
+	 //  //     });
+	 //  //   });
 
-	  	while(usersCur.hasNext()) {
-			respStr += usersCur.next();
-		}
+	 //  	while(usersCur.hasNext()) {
+		// 	respStr += usersCur.next();
+		// }
 
-	  res.success(respStr);
+	 //  res.success(respStr);
 	});
 	
 });
