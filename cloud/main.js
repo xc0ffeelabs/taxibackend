@@ -24,7 +24,7 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	  } else {
 	    console.log("connected to database");
 	  }
-	  var collection = db.collection('Driver');
+	  var collection = db.collection('_User');
 	  collection.find({}).toArray(function(err, docs) {
 	        if (err) {
 	          return console.error(err)
