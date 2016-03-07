@@ -3,6 +3,8 @@
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient;
 
+  var dbUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
+
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
@@ -16,7 +18,7 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	// 	respStr += usersCur.next();
 	// }
 
-	MongoClient.connect(process.env.MONGOSOUP_URL, function(err, db) {
+	MongoClient.connect(dbUri, function(err, db) {
 	  if(err) {
 	    console.log("failed to connect to the database");
 	  } else {
