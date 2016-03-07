@@ -25,14 +25,19 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	    console.log("connected to database");
 	  }
 	  var collection = db.collection('_User');
-	  collection.find({}).toArray(function(err, docs) {
-	        if (err) {
-	          return console.error(err)
-	        }
-	        docs.forEach(function(doc) {
-	        	respStr += doc;
-	      });
-	    });
+	  var usersCur = collection.find({});
+	  // .toArray(function(err, docs) {
+	  //       if (err) {
+	  //         return console.error(err)
+	  //       }
+	  //       docs.forEach(function(doc) {
+	  //       	respStr += doc;
+	  //     });
+	  //   });
+
+	  	while(usersCur.hasNext()) {
+			respStr += usersCur.next();
+		}
 
 	  res.success(respStr);
 	});
