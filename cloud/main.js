@@ -1,4 +1,4 @@
-require 'mongo';
+// require 'mongo';
 // var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 // client = Mongo::Client.new(databaseUri);
 // db = client.database;
