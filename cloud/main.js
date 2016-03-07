@@ -1,7 +1,7 @@
-// require 'mongo';
-// var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
-// client = Mongo::Client.new(databaseUri);
-// db = client.database;
+
+var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
+client = Mongo::Client.new(databaseUri);
+db = client.database;
 
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
