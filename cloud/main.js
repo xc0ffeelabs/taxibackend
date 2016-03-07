@@ -30,6 +30,7 @@ Parse.Cloud.define('findUsers', function(req, res) {
 	    // db.close();
 	    var collection = db.collection('_User');
 	  	collection.find({},{},function(e,docs){
+	  		db.close();
         res.render('userlist', {
             "userlist" : docs
         });
