@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red60\green60\blue60;\red255\green255\blue255;\red52\green52\blue52;
+\red60\green60\blue60;\red52\green52\blue52;\red47\green255\blue18;}
+\margl1440\margr1440\vieww28600\viewh15740\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\sa160
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Request: \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \uc0\u8232 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 curl -X GET -H "X-Parse-Application-Id: gotaxi" -H "X-Parse-Master-Key: gotaxi" \\ {\field{\*\fldinst{HYPERLINK "https://gotaxi.herokuapp.com/parse/classes/User"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://gotaxi.herokuapp.com/parse/classes/User}}\
+\pard\pardeftab720\sl360
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Response: \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \uc0\u8232 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \{"results":[\{"objectId":"56dbdda2e4b066b0efdff508","name":"Srikant","emailId":"{\field{\*\fldinst{HYPERLINK "mailto:srikanth1234@gmail.com"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 srikanth1234@gmail.com}}","phone":"7324852111","password":"test"\}]\}\
+\
+\
+\pard\pardeftab720\sl360\sa160
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Request: \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \uc0\u8232 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 curl -X POST -H "X-Parse-Application-Id: gotaxi" -H "X-Parse-Master-Key: gotaxi" -H "Content-Type: application/json" -d '\{"name":"Test_user_1", "emailId": "{\field{\*\fldinst{HYPERLINK "mailto:testuser1@gmail.com"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 testuser1@gmail.com}}", "phone": "1234567891", "password": "password"\}' \\ {\field{\*\fldinst{HYPERLINK "https://gotaxi.herokuapp.com/parse/classes/User"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://gotaxi.herokuapp.com/parse/classes/User}}\
+\pard\pardeftab720\sl360
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Response: \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \uc0\u8232 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \{"objectId":"bpJeNGrA7J","createdAt":"2016-03-06T09:15:17.060Z"\}\
+\
+\
+Request:\
+curl -X PUT -H "X-Parse-Application-Id: gotaxi" -H "X-Parse-Master-Key: gotaxi"  -H "Content-Type: application/json" -d '\{\cf5 \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 "location": \{"longitude": "70.34","lattitude": "21.45"\}\cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \}' \\  https://gotaxi.herokuapp.com/parse/classes/Driver/56dbe352e4b066b0efdff546\
+\
+Response:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \{"updatedAt":"2016-03-06T18:08:47.168Z"\}
+\f0\fs28 \cf1 \cb1 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl360
+\cf2 \cb3 \
+\
+\pard\pardeftab720\sl360\sa160
+\cf5 \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Request: \uc0\u8232 curl -X POST -H "X-Parse-Application-Id: gotaxi" -H "X-Parse-Master-Key: gotaxi" -H "Content-Type: application/json" -d '\{"name\'94:\'94Test_Driver_1\'94, "emailId": "{\field{\*\fldinst{HYPERLINK "mailto:testuser1@gmail.com"}}{\fldrslt \cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 testdriver1@gmail.com}}", "phone": "1234567891", "password": "password\'94, \'93licenseId\'94: \'93drfg1234qas\'94, "taxt_company_id\'94: \'93sdwerfg\'94, \cf5 \expnd0\expndtw0\kerning0
+"location": \{"longitude": "70.34","lattitude": "21.45"\}\cf5 \expnd0\expndtw0\kerning0
+\}\'92 \\ {\field{\*\fldinst{HYPERLINK "https://gotaxi.herokuapp.com/parse/classes/User"}}{\fldrslt \cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 https://gotaxi.herokuapp.com/parse/classes/}}\cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 Driver\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf7 \cb0 \kerning1\expnd0\expndtw0 \ulnone \CocoaLigature0 curl -X POST -H "X-Parse-Application-Id: gotaxi" -H "X-Parse-Master-Key: gotaxi" -H "Content-Type: application/json" -d '\{"name\'94:\'94Test_Driver_1\'94, "emailId": "testdriver1@gmail.com", "phone": "1234567891", "password": "password", "licenseId": "drfg1234qas", "taxt_company_id": "sdwerfg", "location": \{"longitude": "70.34","lattitude": "21.45"\}\}' \\ https://gotaxi.herokuapp.com/parse/classes/Driver
+\f0\fs28 \cf5 \cb1 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl360
+\cf5 \expnd0\expndtw0\kerning0
+Response: }
