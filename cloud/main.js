@@ -1,7 +1,7 @@
+// require 'mongo';
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
-client = Mongo::Client.new(databaseUri);
-db = client.database;
+var mongodb = require('mongodb')
+  , MongoClient = mongodb.MongoClient;
 
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
@@ -11,11 +11,29 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define('findUsers', function(req, res) {
 	// var usersCur = db.inventory.find();
-	// var respStr = "";
+	var respStr = "";
 	// while(usersCur.hasNext()) {
 	// 	respStr += usersCur.next();
 	// }
-  res.success('respStr');
+
+	MongoClient.connect(process.env.MONGOSOUP_URL, function(err, db) {
+	  if(err) {
+	    console.log("failed to connect to the database");
+	  } else {
+	    console.log("connected to database");
+	  }
+	  var collection = db.collection('Drivers');
+	  collection.find({}).toArray(function(err, docs) {
+	        if (err) {
+	          return console.error(err)
+	        }
+	        docs.forEach(function(doc) {
+	        	respStr += doc;
+	          console.log('found document: ', doc)
+	      });
+	    });
+	});
+	res.success(respStr);
 });
 
 
