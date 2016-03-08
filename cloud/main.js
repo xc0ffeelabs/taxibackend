@@ -3,7 +3,7 @@
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient;
 
-  var dbUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
+  var dbUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI  || 'mongodb://localhost:27017/dev';
 
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
@@ -11,48 +11,39 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-Parse.Cloud.define('findUsers', function(req, res) {
-	// var usersCur = db.inventory.find();
-	var respStr = "";
-	// while(usersCur.hasNext()) {
-	// 	respStr += usersCur.next();
-	// }
+Parse.Cloud.define('getDrivers', function(req, res) {
+	  var query = new Parse.Query("Driver");
+	  var myLocation = req.params;
+	  console.log(myLocation);
+	  // query.equalTo("objectId", "CBN6n9Paw5");
+	  query.find({
+	    success: function(results) {
+	      res.success(results);
+	    },
+	    error: function(err) {
+	    	console.log(err);
+	      res.error("Driver lookup failed");
+	    }
+	  });
+	
+});
 
-	var db = req.db;
-    var collection = db.get('_User');
-    
 
-	MongoClient.connect(dbUri, function(err, db) {
-	  if(err) {
-	    console.log("failed to connect to the database");
-	  } else {
-	    console.log("connected to database");
-	    // db.close();
-	    var collection = db.collection('_User');
-	  	collection.find({},{},function(e,docs){
-	  		db.close();
-        res.render('userlist', {
-            "userlist" : docs
-        });
-	  }
-	  
-	});
-	 //  var usersCur = collection.find({});
-	 //  // .toArray(function(err, docs) {
-	 //  //       if (err) {
-	 //  //         return console.error(err)
-	 //  //       }
-	 //  //       docs.forEach(function(doc) {
-	 //  //       	respStr += doc;
-	 //  //     });
-	 //  //   });
+Parse.Cloud.define('getDriversNearMe', function(req, res) {
+	// Parse.Cloud.define("averageStars", function(request, response) {
+	var myLocation = req.params.location;
 
-	 //  	while(usersCur.hasNext()) {
-		// 	respStr += usersCur.next();
-		// }
-
-	 //  res.success(respStr);
-	});
+	  var query = new Parse.Query("Driver");
+	  // query.equalTo("objectId", "CBN6n9Paw5");
+	  query.find({
+	    success: function(results) {
+	      res.success(results);
+	    },
+	    error: function(err) {
+	    	console.log(err);
+	      res.error("Driver lookup failed");
+	    }
+	  });
 	
 });
 
