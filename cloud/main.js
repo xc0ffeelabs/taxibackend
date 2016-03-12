@@ -2,7 +2,6 @@
 
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient;
-  var when = require('when');
 
   var dbUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI  || 'mongodb://localhost:27017/dev';
 
